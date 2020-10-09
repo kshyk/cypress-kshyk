@@ -7,13 +7,19 @@ on:
     branches: [ master ]
 
 jobs:
-  cypress-run:
+  test:
+    name: Cypress run
     runs-on: ubuntu-latest
-    container: cypress/browsers:latest
+    strategy:
+      matrix:
+        machines: [1, 2, 3]
+    #container: cypress/browsers:latest
     steps:
       - name: Checkout ${{ github.repository }} repository
         uses: actions/checkout@v1
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          record: true
+          parallel: true
           browser: chrome
