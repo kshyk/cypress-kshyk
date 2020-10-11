@@ -7,8 +7,8 @@ jobs:
     name: OS & Node matrixes
     strategy:
       matrix:
-        os: ['ubuntu-latest'] #, 'windows-latest', 'macos-latest']
-        machines: [1, 2]
+        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
+        # machines: [1, 2, 3]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout ${{ github.repository }} repository
@@ -30,6 +30,7 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           start: npx cypress run
+          start-windows: npm run start:ci:windows
         # timeout-minutes: 10
         # with:
         #   record: true
