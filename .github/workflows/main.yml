@@ -31,7 +31,7 @@ jobs:
         uses: cypress-io/github-action@v1
         timeout-minutes: 10
         with:
-          record: false
+          record: true
           parallel: true
           group: Parallel 2x on ${{ matrix.os }}
           # on Mac and Linux we can use "npm start"
