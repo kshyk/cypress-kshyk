@@ -27,17 +27,15 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
-      - name: Install dependencies
-        run: npm ci
       - name: Cypress run
         uses: cypress-io/github-action@v1
         timeout-minutes: 10
         with:
-          record: true
+          record: false
           parallel: true
           group: Parallel 2x on ${{ matrix.os }}
           # on Mac and Linux we can use "npm start"
-          start: npm start
+          start: npx cypress run
           # but for this particular project on Windows we need a different start command
           start-windows: npm run start:ci:windows
         env:
