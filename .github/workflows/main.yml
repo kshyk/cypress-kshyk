@@ -28,4 +28,4 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           start: npx cypress run
-          start-windows: npm run start:ci:windows
+          start-windows: npx cypress run start:ci:windows
