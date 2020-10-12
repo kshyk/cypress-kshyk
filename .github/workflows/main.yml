@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   parallel-runs-across-platforms:
-    name: OS & Node matrixes
+    name: Matrix
     strategy:
       matrix:
         os: ['ubuntu-latest', 'macos-latest']
