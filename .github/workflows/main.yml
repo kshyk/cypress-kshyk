@@ -7,15 +7,16 @@ jobs:
     name: OS & Node matrixes
     strategy:
       matrix:
-        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
+        os: ['ubuntu-latest', 'macos-latest']
+        node-version: [10.x, 12.x, 14.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout ${{ github.repository }} repository
         uses: actions/checkout@v1
-      - name: Use Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: ${{ matrix.node-version }}
       - name: Cache Node.js modules
         uses: actions/cache@v2
         with:
@@ -28,4 +29,4 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           start: npx cypress run
-          start-windows: npx cypress run start:ci:windows
+          #start-windows: npx cypress run start:ci:windows
