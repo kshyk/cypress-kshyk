@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "cypress:open": "./node_modules/.bin/cypress open",
-    "cy:run": "./node_modules/.bin/cypress run"
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run"
   }
 }
