@@ -42,4 +42,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: npx cypress run --browser ${{ matrix.browser }}
+          start: npm run cy:run -- --browser ${{ matrix.browser }}
