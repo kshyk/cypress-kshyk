@@ -26,6 +26,8 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
+      - name: Install packages
+        run: npm install
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
