@@ -29,12 +29,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install dependencies
-        #run: sudo apt install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+      - name: Install Linux dependencies
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: sudo apt install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+      - name: Install Cypress
         run: npm i cypress --save-dev
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
           start: npx cypress run --browser ${{ matrix.browser }}
-          #start: npm run cy:run -- --browser ${{ matrix.browser }}
-          #start-windows: npx cypress run start:ci:windows
