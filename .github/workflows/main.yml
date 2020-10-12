@@ -8,7 +8,8 @@ jobs:
     strategy:
       matrix:
         os: ['ubuntu-latest', 'macos-latest']
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [12.x, 14.x]
+        browser: ['chrome', 'firefox']
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout ${{ github.repository }} repository
@@ -28,5 +29,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: npx cypress run
+          start: $(npm bin)/cypress run --browser ${{ matrix.browser }}
+          #start: npx cypress run
           #start-windows: npx cypress run start:ci:windows
