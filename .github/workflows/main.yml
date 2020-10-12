@@ -14,12 +14,11 @@ jobs:
     steps:
       - name: Checkout ${{ github.repository }} repository
         uses: actions/checkout@v1
-      - name: Snyk vulnerabilities monitor
+      - name: Snyk monitor
         uses: snyk/actions@0.3.0
+        run: snyk test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: monitor
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
