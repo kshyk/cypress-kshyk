@@ -15,6 +15,7 @@ jobs:
       - name: Checkout ${{ github.repository }} repository
         uses: actions/checkout@v1
       - name: Snyk monitor
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: snyk/actions@0.3.0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
