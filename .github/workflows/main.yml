@@ -28,7 +28,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: ~/.npm 
+          path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -43,3 +43,4 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           start: npm run cy:run -- --browser ${{ matrix.browser }}
+          wait-on: http://localhost:3030
