@@ -23,6 +23,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: SonarCloud Code Analysis
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: SonarSource/sonarcloud-github-action@v1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
