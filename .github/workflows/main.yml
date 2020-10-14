@@ -22,7 +22,7 @@ jobs:
         uses: snyk/actions@0.3.0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      - name: SonarCloud scan
+      - name: SonarCloud Code Analysis
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
