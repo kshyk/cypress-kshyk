@@ -47,7 +47,7 @@ jobs:
         run: sudo apt install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
       - name: Install Node dependencies
         run: |
-          npm i @actions/core
+          npm i @actions/core actions-toolkit
           npm i cypress --save-dev
       - name: Cypress run tests
         uses: cypress-io/github-action@v1
