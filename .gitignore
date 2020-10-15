@@ -101,6 +101,9 @@ dist
 # Serverless directories
 .serverless/
 
+# Screenshot directories
+cypress/screenshots
+
 # FuseBox cache
 .fusebox/
 
