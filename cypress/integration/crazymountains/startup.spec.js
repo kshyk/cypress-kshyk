@@ -6,10 +6,9 @@ context('Crazy Mountains', () => {
     })
 
     it('should be site under construction', () => {
-        cy.get('h1').should('have.text', 'Tryb konserwacji')
-        cy.get('h2 > p')
-          .should('contain.text', 'Przepraszamy za niedogodności.')
-          .should('contain.text', 'Nasza strona jest obecnie poddawana pracom konserwacyjnym.')
-          .should('contain.text', 'Dziękujemy za zrozumienie.')
+        cy.request('GET', 'http://crazymountains.com/')
+            .then((response) => {
+                expect(response.status).to.eq(503)
+            })
     });
 });
