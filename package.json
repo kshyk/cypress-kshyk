@@ -4,6 +4,7 @@
     "cy:run": "cypress run"
   },
   "devDependencies": {
+    "eslint": "^7.11.0",
     "eslint-plugin-cypress": "^2.11.2"
   }
 }
