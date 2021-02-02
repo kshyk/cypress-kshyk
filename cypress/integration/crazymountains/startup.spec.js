@@ -8,7 +8,7 @@ context("Crazy Mountains", () => {
           failOnStatusCode: false
         })
         .then((response) =>
-          expect(response.status).to.eq(503)
+          expect(response.status).to.eq(200)
         )
     });
 });
