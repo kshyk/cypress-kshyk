@@ -10,7 +10,7 @@ jobs:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     strategy:
       matrix:
-        machines: [1, 2, 3]
+        machines: [1, 2, 3, 4]
     steps:
       - name: Log untrusted output
         run: echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
