@@ -1,4 +1,7 @@
 {
-    "video": false,
-    "experimentalStudio": true
+  "video": false,
+  "chromeWebSecurity": false,
+  "experimentalStudio": true,
+  "projectId": "kccg2z",
+  "retries": 2
 }

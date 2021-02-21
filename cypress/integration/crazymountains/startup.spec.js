@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 context("Crazy Mountains", () => {
-    it("should be under construction", () => {
+    it("should not be under construction", () => {
         cy.request({
           method: "GET",
           url: "http://crazymountains.com/",

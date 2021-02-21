@@ -3,25 +3,23 @@ name: E2E tests
 on: [push, pull_request]
 
 jobs:
-  parallel-runs-across-platforms:
-    name: Matrix
+  test:
+    name: Cypress run
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
         browser: ['chrome', 'firefox']
-    runs-on: ${{ matrix.os }}
+        machines: [1, 2, 3]
     steps:
       - name: Checkout ${{ github.repository }} repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - name: Run Snyk monitor
-        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: snyk/actions@0.3.0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: SonarCloud Code Analysis
-        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: SonarSource/sonarcloud-github-action@v1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
@@ -42,11 +40,14 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install Linux dependencies
-        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
       - name: Install Node dependencies
         run: npm i cypress eslint eslint-plugin-cypress --save-dev
       - name: Cypress run tests
         uses: cypress-io/github-action@v1
         with:
+          record: true
+          parallel: true
           start: npm run cy:run -- --browser ${{ matrix.browser }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
