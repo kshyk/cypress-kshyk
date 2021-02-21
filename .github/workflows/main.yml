@@ -6,6 +6,8 @@ jobs:
   test:
     name: Cypress run
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     strategy:
       matrix:
         browser: ['chrome', 'firefox']
