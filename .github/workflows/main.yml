@@ -10,7 +10,6 @@ jobs:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     strategy:
       matrix:
-        browser: ['chrome', 'firefox']
         machines: [1, 2, 3]
     steps:
       - name: Log untrusted output
@@ -48,6 +47,6 @@ jobs:
         with:
           record: true
           parallel: true
-          start: npm run cy:run -- --browser ${{ matrix.browser }} --headed
+          start: npm run cy:run -- --headed
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
