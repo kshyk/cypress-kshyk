@@ -11,6 +11,8 @@ jobs:
         browser: ['chrome', 'firefox']
         machines: [1, 2, 3]
     steps:
+      - name: Log untrusted output
+        run: echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
       - name: Checkout ${{ github.repository }} repository
         uses: actions/checkout@v2
         with:
