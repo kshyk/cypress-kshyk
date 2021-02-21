@@ -9,8 +9,5 @@
     "cypress": "^6.5.0",
     "eslint": "^7.11.0",
     "eslint-plugin-cypress": "^2.11.2"
-  },
-  "dependencies": {
-    "testingbot-cypress-cli": "^1.0.0"
   }
 }
