@@ -48,6 +48,6 @@ jobs:
         with:
           record: true
           parallel: true
-          start: npm run cy:run -- --browser ${{ matrix.browser }}
+          start: npm run cy:run -- --browser ${{ matrix.browser }} --headed
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
