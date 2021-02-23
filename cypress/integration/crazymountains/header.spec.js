@@ -2,7 +2,7 @@
 
 context("Header Bar", () => {
     before(() => {
-        cy.visit("https://crazymountains.com/")
+        cy.visit("https://crazymountains.eu/")
     });
 
     it("verifies social media icons", () => {
