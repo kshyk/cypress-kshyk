@@ -5,7 +5,11 @@ context("Header Bar", () => {
         cy.visit("https://crazymountains.com/")
     });
 
-    it("should contain Facebook icon", () => {
-        cy.get("a.facebook").should("be.visible")
+    it("verifies social media icons", () => {
+        cy.get("[data-label='Facebook']").should("be.visible")
+        cy.get("[data-label='Instagram']").should("be.visible")
+        cy.get("[data-label='E-mail']").should("be.visible")
+        cy.get("[data-label='Pinterest']").should("be.visible")
+        cy.get("[data-label='YouTube']").should("be.visible")
     });
 });
