@@ -4,7 +4,7 @@ context("Crazy Mountains", () => {
     it("should not be under construction", () => {
         cy.request({
           method: "GET",
-          url: "http://crazymountains.eu/",
+          url: "https://crazymountains.eu/",
           failOnStatusCode: false
         })
         .then((response) =>
