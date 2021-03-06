@@ -9,6 +9,7 @@ jobs:
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     strategy:
+      fail-fast: false
       matrix:
         machines: [1, 2, 3, 4, 5]
     steps:
