@@ -1,7 +1,11 @@
 {
-  "video": false,
+  "video": true,
   "chromeWebSecurity": false,
   "experimentalStudio": true,
   "projectId": "kccg2z",
-  "retries": 2
+  "retries": 2,
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "reporter-config.json"
+  }
 }
