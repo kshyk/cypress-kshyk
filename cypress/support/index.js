@@ -15,7 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import "./commands"
-import addContext from "ochawesome/addContext"
+import addContext from "mochawesome/addContext"
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
