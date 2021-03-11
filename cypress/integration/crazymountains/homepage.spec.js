@@ -6,8 +6,7 @@ context("Home Page", () => {
     });
 
     it("verifies social media icons in header", () => {
-      var medias = ["Facebook", "Instagram", "E-mail", "Pinterest", "YouTube"];
-      medias.forEach((item) => {
+      ["Facebook", "Instagram", "E-mail", "Pinterest", "YouTube"].forEach((item) => {
         cy.get("[data-label='" + item + "']").should("be.visible");
       });
     });
