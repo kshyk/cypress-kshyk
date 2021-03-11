@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        machines: [1, 2, 3]
+        machines: [1, 2]
     steps:
       - name: Log untrusted output
         run: echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
