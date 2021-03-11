@@ -1,7 +1,0 @@
-name: Create Cypress report
-on:
-  push:
-    branches:
-      - 'main'
-  schedule:
-    - cron: '30 18 * * 1-6'
