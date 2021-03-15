@@ -76,3 +76,16 @@ jobs:
           publish_dir: ./public
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
+  zap_scan:
+    runs-on: ubuntu-20.04
+    name: Scan Crazymountains
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: 'owasp/zap2docker-stable'
+          target: 'https://crazymountains.eu'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
