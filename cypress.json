@@ -1,5 +1,5 @@
 {
-  "video": true,
+  "video": false,
   "chromeWebSecurity": false,
   "experimentalStudio": true,
   "projectId": "kccg2z",
