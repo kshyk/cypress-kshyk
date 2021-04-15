@@ -7,7 +7,7 @@ context("Home Page", () => {
 
     it("verifies social media icons in header", () => {
       ["Facebook", "Instagram", "E-mail", "Pinterest", "YouTube"].forEach((item) => {
-        cy.get("[data-label='" + item + "']").should("be.visible");
+        cy.get(`[data-label='${item}']`).should("be.visible");
       });
     });
 
